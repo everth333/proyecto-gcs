@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/eamaya0380/Proyecto_gcs/_apis/build/status/everth333.proyecto-gcs?branchName=main)](https://dev.azure.com/eamaya0380/Proyecto_gcs/_build/latest?definitionId=2&branchName=main)
+
 # Ejemplo GCS
 
 Esta aplicación web está basada en la aplicación play-scala-slick-example.
