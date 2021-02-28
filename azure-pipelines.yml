@@ -12,7 +12,7 @@ pool:
 
 
 steps:
-- script: echo Compilar y correr las pruebas unitarias7
+- script: echo Compilar y correr las pruebas unitarias v8
   displayName: 'Commit Check'
 
 - script: |
