@@ -51,8 +51,11 @@ steps:
     echo Conectarse a Azure MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo ssh -tt -i webserver-01_key.pem azureuser@40.121.239.199 <<'EOT'
     echo Detener el APP y Nginx MENSAJEEEEEEEEEEEEEEEEEEEE
-    sudo systemctl stop nginx
+    sudo systemctl stop nginx.service
     sudo systemctl stop gcs-app.service
+    ls
+    ls
+    ls
     echo Desintalar la APP MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo rpm -e gcs-app
     echo Eliminar directorio MENSAJEEEEEEEEEEEEEEEEEEEE
@@ -68,11 +71,11 @@ steps:
     echo Volver a conectarse a Azure MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo ssh -tt -i webserver-01_key.pem azureuser@40.121.239.199 <<'EOT'
     echo Reiniciar el APP y nginx MENSAJEEEEEEEEEEEEEEEEEEEE
-    sudo systemctl restart nginx
+    sudo systemctl restart nginx.service
     sudo systemctl restart gcs-app.service
     echo Habilitar el demonio MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo setsebool -P httpd_can_network_connect on
     logout
     EOT
-    echo FIN MENSAJEEEEEEEEEEEEEEEEEEEE222334433777
+    echo FIN MENSAJEEEEEEEEEEEEEEEEEEEE11
   displayName: 'Integration Tests'
