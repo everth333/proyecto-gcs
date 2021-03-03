@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\config",
+    "\\gcs-app",
+    "\\gcs-app\\conf",
+    "\\gcs-app\\test"
   ],
-  "SelectedNode": "\\azure-pipelines.yml",
+  "SelectedNode": "\\config\\nginx.conf",
   "PreviewInSolutionExplorer": false
 }
