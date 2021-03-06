@@ -11,7 +11,7 @@ pool:
 
 steps:
 - script: |
-    echo Compilar y correr las pruebas unitarias
+    echo Compilar ========================================================
     echo Correr las pruebas de integración
     echo Inicio update MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo apt-get update
@@ -44,7 +44,7 @@ steps:
     sudo sbt rpm:packageBin
   displayName: 'Commit Check Phase - Fase de Verificación de COnstrucción-Compilación'
 
-  steps:1
+  #steps:12
 - script: |
     echo 2. Ejecutar test Unitario MENSAJEEEEEEEEEEEEEEEEEEEEE
     sudo sbt test 
