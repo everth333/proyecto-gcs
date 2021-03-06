@@ -48,33 +48,33 @@ steps:
     sudo sbt test
   displayName: 'Integration Test Phase - Fase de Test de Integración'
 
-- script: | 23   
+- script: |
     echo Fase de Despliegue a Servidor de Pruebas ========================================================
     sudo scp -v -o StrictHostKeyChecking=no -i webserver-01_key.pem /home/vsts/work/1/s/gcs-app/target/rpm/RPMS/noarch/gcs-app-2.8.x-1.noarch.rpm azureuser@40.121.239.199:/home/azureuser
     sudo ssh -tt -i webserver-01_key.pem azureuser@40.121.239.199 <<'EOT'
     sudo systemctl stop nginx.service
-    sleep 5
+    sleep 2
     sudo systemctl stop gcs-app.service
-    sleep 5
+    sleep 2
     sudo rpm -e gcs-app
-    sleep 20
+    sleep 10
     sudo rm -rf /usr/share/gcs-app/
-    sleep 5
+    sleep 2
     sudo rpm -i gcs-app-2.8.x-1.noarch.rpm
-    sleep 20
+    sleep 10
     sudo chown -R gcs-app /usr/share/gcs-app/
-    sleep 5
+    sleep 2
     sudo chgrp -R gcs-app /usr/share/gcs-app/
-    sleep 5
+    sleep 2
     logout
     EOT
     sudo scp -v -o StrictHostKeyChecking=no -i webserver-01_key.pem nginx.conf azureuser@40.121.239.199:/etc/nginx
-    sleep 5
+    sleep 2
     sudo ssh -tt -i webserver-01_key.pem azureuser@40.121.239.199 <<'EOT'
     sudo systemctl restart nginx.service
-    sleep 5
+    sleep 3
     sudo systemctl restart gcs-app.service
-    sleep 5
+    sleep 3
     sudo setsebool -P httpd_can_network_connect on
     logout
     EOT
