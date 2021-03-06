@@ -63,13 +63,10 @@ steps:
     sudo rpm -i gcs-app-2.8.x-1.noarch.rpm
     sleep 10
     sudo chown -R gcs-app /usr/share/gcs-app/
-    sleep 2
     sudo chgrp -R gcs-app /usr/share/gcs-app/
-    sleep 2
     logout
     EOT
     sudo scp -v -o StrictHostKeyChecking=no -i webserver-01_key.pem nginx.conf azureuser@40.121.239.199:/etc/nginx
-    sleep 2
     sudo ssh -tt -i webserver-01_key.pem azureuser@40.121.239.199 <<'EOT'
     sudo systemctl restart nginx.service
     sleep 3
