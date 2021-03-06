@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: 'Ubuntu-16.04'
 
-steps:13344423jjk
+steps:13344423jjkkjk
 - script: |
     echo Compilar ========================================================de
     echo Test ========================================================
