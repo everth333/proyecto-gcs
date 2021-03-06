@@ -3,9 +3,14 @@
     "",
     "\\config",
     "\\gcs-app",
+    "\\gcs-app\\app",
+    "\\gcs-app\\app\\controllers",
+    "\\gcs-app\\app\\models",
+    "\\gcs-app\\app\\views",
     "\\gcs-app\\conf",
-    "\\gcs-app\\test"
+    "\\gcs-app\\public",
+    "\\gcs-it"
   ],
-  "SelectedNode": "\\config\\nginx.conf",
+  "SelectedNode": "\\gcs-app\\app\\views\\main.scala.html",
   "PreviewInSolutionExplorer": false
 }
