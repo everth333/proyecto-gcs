@@ -1,16 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\config",
     "\\gcs-app",
     "\\gcs-app\\app",
     "\\gcs-app\\app\\controllers",
-    "\\gcs-app\\conf\\evolutions",
-    "\\gcs-app\\conf\\evolutions\\default",
     "\\gcs-app\\public",
     "\\gcs-app\\public\\javascripts",
     "\\gcs-it",
     "\\gcs-it\\test"
   ],
-  "SelectedNode": "\\gcs-app\\public\\javascripts\\jquery-2.2.0.min.js",
+  "SelectedNode": "\\config\\nginx.conf",
   "PreviewInSolutionExplorer": false
 }
