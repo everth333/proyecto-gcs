@@ -10,9 +10,6 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-- script: |
-    echo Azure-Pipeline
-  displayName: 'Azure-Pipeline'
 
 - script: |
     echo Compilar ========================================================
