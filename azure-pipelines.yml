@@ -12,43 +12,28 @@ pool:
 steps:
 - script: |
     echo Compilar ========================================================
-    echo Correr las pruebas de integración
-    echo Inicio update MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo apt-get update
-    echo Inicio java  MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo apt-get install openjdk-8-jdk
-    java -version
-    echo Instalacion y Descarga de scala  MENSAJEEEEEEEEEEEEEEEEEEEE 
     wget www.scala-lang.org/files/archive/scala-2.12.10.deb
     sudo dpkg -i scala*.deb
-    scala -version
-    echo Instalacion y Descarga SBT MENSAJEEEEEEEEEEEEEEEEEEEE
     echo "deb https://dl.bintray.com/sbt/debian/" | sudo tee -a /etc/apt/sources.list.d/sbt.list
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
     sudo apt-get update
-    sudo apt-get install sbt -y    echo Instalar GIT MENSAJEEEEEEEEEEEEEEEEEEEE
+    sudo apt-get install sbt -y
     sudo apt install git
-    git -version
-    echo Instalar Which MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo apt install which
-    echo Instalar YUM-UTILS MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo apt-get install -y yum-utils
-    echo Instalar Docker MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo apt-get install docker-ce docker-ce-cli containerd.io
     sudo docker run hello-world
-    echo Instalar ALIEN MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo add-apt-repository universe
     sudo apt install alien
-    echo Listar repositorio MENSAJEEEEEEEEEEEEEEEEEEEE
-    echo Crear el build MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo sbt rpm:packageBin
   displayName: 'Commit Check Phase - Fase de Verificación de COnstrucción-Compilación'
 
-  #steps:12
+  steps:123
 - script: |
-    echo 2. Ejecutar test Unitario MENSAJEEEEEEEEEEEEEEEEEEEEE
+    echo Test Unitario ========================================================
     sudo sbt test 
-    echo Fin 2 Ejecutar test Unitario  MENSAJEEEEEEEEEEEEEEEEEEEE
   displayName: 'Commit Check Phase - Fase de Test Unitarios'
 
 - script: |    
