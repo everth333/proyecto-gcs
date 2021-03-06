@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\config",
     "\\gcs-app",
     "\\gcs-app\\app",
     "\\gcs-app\\app\\controllers",
-    "\\gcs-app\\app\\models",
-    "\\gcs-app\\app\\views",
-    "\\gcs-app\\conf",
+    "\\gcs-app\\conf\\evolutions",
+    "\\gcs-app\\conf\\evolutions\\default",
     "\\gcs-app\\public",
-    "\\gcs-it"
+    "\\gcs-app\\public\\javascripts",
+    "\\gcs-it",
+    "\\gcs-it\\test"
   ],
-  "SelectedNode": "\\gcs-app\\app\\views\\main.scala.html",
+  "SelectedNode": "\\gcs-app\\public\\javascripts\\jquery-2.2.0.min.js",
   "PreviewInSolutionExplorer": false
 }
