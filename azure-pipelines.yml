@@ -48,7 +48,7 @@ steps:
     sudo sbt test
   displayName: 'Integration Test Phase - Fase de Test de Integración'
 
-- script: |    
+- script: | 1   
     echo Fase de Despliegue a Servidor de Pruebas ========================================================
     sudo scp -v -o StrictHostKeyChecking=no -i webserver-01_key.pem /home/vsts/work/1/s/gcs-app/target/rpm/RPMS/noarch/gcs-app-2.8.x-1.noarch.rpm azureuser@40.121.239.199:/home/azureuser
     sudo ssh -tt -i webserver-01_key.pem azureuser@40.121.239.199 <<'EOT'
