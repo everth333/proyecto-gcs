@@ -30,7 +30,7 @@ steps:
     sudo sbt rpm:packageBin
   displayName: 'Commit Check Phase - Fase de Verificación de COnstrucción-Compilación'
 
-  steps:38901jhsadf
+  steps:38901jhsadfdf
 - script: |
     echo Fase de Test Unitario ========================================================
     sudo sbt test 
