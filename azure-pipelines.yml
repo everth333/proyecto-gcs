@@ -30,43 +30,38 @@ steps:
     sudo sbt rpm:packageBin
   displayName: 'Commit Check Phase - Fase de Verificación de COnstrucción-Compilación'
 
-  steps:33
+#  steps:33
 - script: |
-    echo Test Unitario ========================================================
+    echo Fase de Test Unitario ========================================================
     sudo sbt test 
   displayName: 'Commit Check Phase - Fase de Test Unitarios'
 
+- script: |
+    echo Fase de Verificación de Pruebas de Integración ========================================================
+    sudo systemctl start docker
+    sudo docker run -it -e POSTGRES_PASSWORD=gcs -e POSTGRES_USER=gcs -e POSTGRES_DB=gcs -p 127.0.0.1:5432:5432  postgres:9.5
+    cd gcs-it
+    sudo sbt test
+  displayName: 'Integration Test Phase - Fase de Test de Integración'
+
 - script: |    
-    echo Copiar a Azure MENSAJEEEEEEEEEEEEEEEEEEEE
+    echo Fase de Despliegue a Servidor de Pruebas ========================================================
     sudo scp -v -o StrictHostKeyChecking=no -i webserver-01_key.pem /home/vsts/work/1/s/gcs-app/target/rpm/RPMS/noarch/gcs-app-2.8.x-1.noarch.rpm azureuser@40.121.239.199:/home/azureuser
-    echo Conectarse a Azure MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo ssh -tt -i webserver-01_key.pem azureuser@40.121.239.199 <<'EOT'
-    echo Detener el APP y Nginx MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo systemctl stop nginx.service
     sudo systemctl stop gcs-app.service
-    ls
-    ls
-    ls
-    echo Desintalar la APP MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo rpm -e gcs-app
-    echo Eliminar directorio MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo rm -rf /usr/share/gcs-app/
-    echo Instalar la APP MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo rpm -i gcs-app-2.8.x-1.noarch.rpm
-    echo Cambiar de usuario MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo chown -R gcs-app /usr/share/gcs-app/
     sudo chgrp -R gcs-app /usr/share/gcs-app/
     logout
     EOT
     sudo scp -v -o StrictHostKeyChecking=no -i webserver-01_key.pem nginx.conf azureuser@40.121.239.199:/etc/nginx
-    echo Volver a conectarse a Azure MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo ssh -tt -i webserver-01_key.pem azureuser@40.121.239.199 <<'EOT'
-    echo Reiniciar el APP y nginx MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo systemctl restart nginx.service
     sudo systemctl restart gcs-app.service
-    echo Habilitar el demonio MENSAJEEEEEEEEEEEEEEEEEEEE
     sudo setsebool -P httpd_can_network_connect on
     logout
     EOT
-    echo FIN MENSAJEEEEEEEEEEEEEEEEEEEE16
-  displayName: 'Integration Tests'
+  displayName: 'Deploy Phase - Fase de Despliegue a Servidor de Pruebas'
