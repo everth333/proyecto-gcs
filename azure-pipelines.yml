@@ -78,4 +78,4 @@ steps:
     sudo setsebool -P httpd_can_network_connect on
     logout
     EOT
-  displayName: 'Deploy Phase - Fase de Despliegue a Servidor de Pruebas'
+  displayName: 'Deploy Phase - Fase de Despliegue a Servidor de Pruebas.'
